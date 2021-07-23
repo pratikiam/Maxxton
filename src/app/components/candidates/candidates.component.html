@@ -1,0 +1,53 @@
+<div class="main-wrapper">
+    <div class="container-table">
+        <div class="container-head">
+            <div class="head">
+                <h1>Candidate Information</h1>
+            </div>
+            <div class="search">
+                <input type="search" [(ngModel)]="searchToken" class="search-input" placeholder="Search by name">
+            </div>
+            <div class="navBtn">
+                <button class="navMenu float-left"  [routerLink]="['/distinct']" routerLinkActive="router-link-active" >Distinct Data</button>
+                <button class="navMenu float-left"  [routerLink]="['/experience']" routerLinkActive="router-link-active" >Experience Data</button>
+              
+
+            </div>
+            
+        </div>
+        <div class="wrap-table">
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr class="table-head">
+                            <th class="column1" >ID </th>
+                            <th class="column2" (click)="sortByName(key)">Name <i class="fa fa-sort"></i></th>
+                            <th class="column3">Department</th>
+                            <th class="column4" (click)="SortByDate(key)">Joining Date <i class="fa fa-sort"></i></th>
+                            <th class="column3">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="!key">
+                        <tr *ngFor="let item of candidate_data | filerByName: searchToken">
+                            <td class="column1">{{item.id}}</td>
+                            <td class="column2">{{item.name}}</td>
+                            <td class="column3">{{item.department}}</td>
+                            <td class="column4">{{item.joining_date}}</td>
+                            <td><i class="fa fa-trash-o" aria-hidden="true" (click)="deleteEmp(item)"></i></td>
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="key">
+                        <tr *ngFor="let item of candidate_data | filerByName: searchToken">
+                            <td class="column1">{{item.id}}</td>
+                            <td class="column2">{{item.name}}</td>
+                            <td class="column3">{{item.department}}</td>
+                            <td class="column4">{{item.joining_date}}</td>
+                            <td><i class="fa fa-trash-o" aria-hidden="true" (click)="deleteEmp(item)"></i></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

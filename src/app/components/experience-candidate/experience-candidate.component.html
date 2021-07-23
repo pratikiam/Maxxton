@@ -1,0 +1,31 @@
+<div class="main-wrapper">
+    <div class="container-table">
+        <div class="container-head">
+            <div class="head">
+                <h1>Experience Candidate Information</h1>
+            </div>
+        </div>
+        <div class="wrap-table">
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr class="table-head">
+                            <th class="column1">ID</th>
+                            <th class="column2">Name </th>
+                            <th class="column3">Department</th>
+                            <th class="column4">Joining Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of data">
+                            <td class="column1">{{item.id}}</td>
+                            <td class="column2">{{item.name}}</td>
+                            <td class="column3">{{item.department}}</td>
+                            <td class="column4">{{item.joining_date}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
